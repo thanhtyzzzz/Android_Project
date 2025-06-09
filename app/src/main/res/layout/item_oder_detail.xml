@@ -1,50 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/txtProductId"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Product ID: "
-        android:textSize="16sp" />
+        android:orientation="vertical"
+        android:padding="12dp">
 
-    <TextView
-        android:id="@+id/txtQuantity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quantity: "
-        android:textSize="16sp" />
+        <!-- Product ID -->
+        <TextView
+            android:id="@+id/txtProductId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product ID: "
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="4dp" />
 
-    <TextView
-        android:id="@+id/txtPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Price: "
-        android:textSize="16sp" />
+        <!-- Quantity -->
+        <TextView
+            android:id="@+id/txtQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quantity: "
+            android:textColor="#424242"
+            android:textSize="14sp"
+            android:paddingBottom="4dp" />
 
-    <TextView
-        android:id="@+id/txtDiscount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Discount: "
-        android:textSize="16sp" />
+        <!-- Price -->
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price: "
+            android:textColor="#424242"
+            android:textSize="14sp"
+            android:paddingBottom="4dp" />
 
-    <TextView
-        android:id="@+id/txtVAT"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="VAT: "
-        android:textSize="16sp" />
+        <!-- Discount -->
+        <TextView
+            android:id="@+id/txtDiscount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Discount: "
+            android:textColor="#E91E63"
+            android:textSize="14sp"
+            android:paddingBottom="4dp" />
 
-    <TextView
-        android:id="@+id/txtTotalValue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Total Value: "
-        android:textSize="16sp" />
+        <!-- VAT -->
+        <TextView
+            android:id="@+id/txtVAT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="VAT: "
+            android:textColor="#424242"
+            android:textSize="14sp"
+            android:paddingBottom="4dp" />
 
-</LinearLayout>
+        <!-- Total Value -->
+        <TextView
+            android:id="@+id/txtTotalValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Value: "
+            android:textColor="#D81B60"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
