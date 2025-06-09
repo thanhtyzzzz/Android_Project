@@ -1,25 +1,23 @@
 package com.tranduythanh.k22411csampleproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.tranduythanh.adapters.OrderViewerAdapter;
 import com.tranduythanh.connectors.OrderViewerConnector;
 import com.tranduythanh.connectors.SQLiteConnector;
 import com.tranduythanh.models.OrderViewer;
-
 import java.util.ArrayList;
 
 public class OrderViewerActivity extends AppCompatActivity {
 
     ListView lvOrderView;
-    OrderViewerAdapter  adapter;
+    OrderViewerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +33,22 @@ public class OrderViewerActivity extends AppCompatActivity {
     }
 
     private void addViews() {
-        lvOrderView=findViewById(R.id.lvOrderViewer);
-        adapter=new OrderViewerAdapter(this, R.layout.item_orderviewer);
+        lvOrderView = findViewById(R.id.lvOrderViewer);
+        adapter = new OrderViewerAdapter(this, R.layout.item_orderviewer);
         lvOrderView.setAdapter(adapter);
 
-        SQLiteConnector connector=new SQLiteConnector(this);
-        OrderViewerConnector ovc=new OrderViewerConnector();
-        ArrayList<OrderViewer> dataset=ovc.getAllOrderViewers(connector.openDatabase());
+        SQLiteConnector connector = new SQLiteConnector(this);
+        OrderViewerConnector ovc = new OrderViewerConnector();
+        ArrayList<OrderViewer> dataset = ovc.getAllOrderViewers(connector.openDatabase());
         adapter.addAll(dataset);
+
+        // Thêm sự kiện click vào ListView
+        lvOrderView.setOnItemClickListener((parent, view, position, id) -> {
+            OrderViewer order = adapter.getItem(position);
+            Intent intent = new Intent(OrderViewerActivity.this, OrderDetailActivity.class);
+            intent.putExtra("ORDER_ID", order.getId());
+            intent.putExtra("ORDER_CODE", order.getCode());
+            startActivity(intent);
+        });
     }
 }
